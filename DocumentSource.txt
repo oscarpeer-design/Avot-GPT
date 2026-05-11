@@ -1,0 +1,177 @@
+The Project Gutenberg eBook of Pirke Avot: The Sayings of the Jewish Fathers
+Source:https://www.gutenberg.org/cache/epub/8547/pg8547.txt
+    
+This eBook is for the use of anyone anywhere in the United States and
+most other parts of the world at no cost and with almost no restrictions
+whatsoever. You may copy it, give it away or re-use it under the terms
+of the Project Gutenberg License included with this eBook or online
+at www.gutenberg.org. If you are not located in the United States,
+you will have to check the laws of the country where you are located
+before using this eBook.
+
+Title: Pirke Avot: The Sayings of the Jewish Fathers
+
+Translator: Joseph I. Gorfinkle
+
+
+        
+Release date: July 1, 2005 [eBook #8547]
+                Most recently updated: December 26, 2020
+
+Language: English
+
+Other information and formats: www.gutenberg.org/ebooks/8547
+
+Credits: Produced by Dan Dyckman
+
+
+*** START OF THE PROJECT GUTENBERG EBOOK PIRKE AVOT: THE SAYINGS OF THE JEWISH FATHERS ***
+
+
+
+
+Produced by Dan Dyckman
+
+
+
+
+________________________
+  TRANSCRIBER'S COMMENTS
+
+Where Hebrew letters appeared within the English text, these have been
+transliterated and included in brackets.  In many cases the hebrew has
+also been spelled out, thus:
+   [tov (tet-vov-bet)].
+
+A rare additional transcriber's note may be found within brackets [].
+
+The source text contained only one comment in a bracket, that should
+not be confused as a transcriber's note.  This is the word [Baden]
+that appeared in the Bibliography.
+
+Each [s] is the special character known as "section sign."
+
+Where the source text referenced a page number within the same book,
+the transcriber substituted a reference in brackets [] that will be
+useful for readers of this e-text version.
+
+The source book contained the complete Pirkei Avot, in Hebrew, with
+vowels.  This has, of necessity, been omitted from the current
+e-text document, which uses only Roman font.
+
+Footnotes all appeared at the bottom of the page, separated by a line
+from the main text, and printed in the same font and size as the main
+text.  The transcriber has moved these footnotes to follow the
+paragraph they supplement, and indented them.
+
+At the end of this e-text, readers will find a section titled
+TRANSCRIPTION NOTES which deals with issues such as accent marks.
+
+Following this, readers will find a PAGE REFERENCE INDEX.  This
+reference will help maintain the stability of references to this
+book from outside sources.
+
+END of TRANSCRIBER'S COMMENTS
+
+
+
+
+
+ Library of Jewish Classics
+ ==========================
+
+ I. Leopold Zunz: The Sufferings of the Jews During the Middle Ages
+ II. Hyman Hurwitz: Talmudic Tales
+ III. "Pirek Abot": The Sayings of the Jewish Fathers
+
+
+
+
+
+     LIBRARY OF JEWISH CLASSICS-III.
+ ________________________________________
+
+           The Sayings of the
+             Jewish Fathers
+
+             [pirkei avot]
+              "PIRKE ABOT"
+ ________________________________________
+
+           Translated, with an
+         Introduction and Notes
+
+                  BY
+       JOSEPH I. GORFINKLE, Ph.D.
+
+               Author of
+ "The Eight Chapters of Maimonides on Ethics"
+
+                _______
+
+           _SECOND EDITION_
+
+ ________________________________________
+         PREFACE
+
+Notwithstanding the fact that there are many editions of the _Sayings
+of the Jewish Fathers_, and that it has been translated innumerable
+times in all modern tongues, no apology need be given for the
+appearance of this little volume in the series of _Jewish Classics_.
+The _Pirke Abot_ is indeed a classical bit of that ancient Jewish
+classic, the _Mishnah_.
+
+The translation in this edition is based largely upon that of Taylor,
+in his _Sayings of the Jewish Fathers_, and upon the excellent version
+of Singer, in his _Authorized Daily Prayer Book_.
+
+This edition is intended mainly for popular reading, but it has been
+thought wise to amplify the notes, especially with bibliographical
+references, so that it may serve the purpose of a teacher's handbook,
+and also be useful as a text-book for the higher grades of religious
+schools and for study circles.  The references are to books that are
+generally accessible, and, wherever possible, to books in English.
+The notes are by no means intended to be exhaustive, but rather to be
+suggestive.
+
+It is the humble hope of the editor that this little book may be the
+means of further popularizing the practical and, at the same time,
+high-minded wisdom of the "Fathers"; that it may serve as an incentive
+to a more detailed study of their philosophy of life, and that its
+appearance may help us to lead in a revival of that most ancient and
+praiseworthy custom of reading the _Pirke Abot_ in the house of
+worship on the Sabbath, during the summer months.  Let him into whose
+hands these sayings fall "meditate upon them day and night," for "he
+who would be saintly must fulfil the dicta of the Fathers."
+
+            JOSEPH I GORFINKLE.
+
+Mt. Vernon, N. Y.
+   February, 1913.
+
+
+            INTRODUCTION
+
+                NAME
+
+The use of the word _Abot_ (fathers), in the title, is of very ancient
+date.  We can only guess at the reason for its being used, and,
+consequently, there are various explanations for it.  Samuel de Uceda,
+in his collective commentary, says that as this tractate of the
+_Mishnah_ contains the advice and good counsel, which, for the most
+part, come from a father, the Rabbis mentioned in it adopt the role of
+"fathers," and are therefore so designated.  This explanation does
+not, however, deter him from advancing another to the effect that this
+treatise is the basis of all subsequent ethical and moral teachings
+and doctrines, and the Rabbis are, in consequence, the "fathers" or
+prototypes of all ethical teachers and moralists (4).  Loeb attributes
+its use to the fact that the Rabbis of _Abot_ are the "fathers" or
+"ancestors of Rabbinic Judaism" (5).  Hoffman states that the word
+_abot_ means "teachers of tradition" (_Traditionslehrer_), and points
+to the expression _abot ha-olam_ (_Eduyot_, I. 4), which, translated
+literally, is "fathers of the world," but is used to designate the
+most distinguished teachers, which is a true characterization of the
+Rabbis of _Abot_ (6).  Taylor says in regard to the title, "It takes
+its name from the fact that it consists to a great extent of the
+maxims of the Jewish Fathers whose names are mentioned in the pages"
+(7).  Hoffmann's seems the most acceptable explanation.
