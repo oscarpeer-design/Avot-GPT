@@ -27,7 +27,7 @@ def clean_text(text):
 CHUNK_SIZE = 500
 TOP_K = 8
 MIN_CONTEXT_WORDS = 40
-
+TEMPERATURE = 0.1
 # -----------------------------
 # EMBEDDING MODEL
 # -----------------------------
@@ -134,9 +134,7 @@ def build_prompt(context, query):
 RULES:
 - Use ONLY the provided context.
 - Do NOT use outside knowledge.
-- If the answer is not in the context, say:
-  "I don't know based on the provided context."
-- Do not guess or infer.
+- If the answer is not in the context, say: "I don't know based on the provided context."
 - Be concise and factual.
 
 Context:
@@ -171,8 +169,8 @@ def chat(query):
         stream=True,
         options={
             "num_ctx": 2048,
-            "num_predict": 150,
-            "temperature": 0.2
+            "num_predict": 200,
+            "temperature": TEMPERATURE
         },
         messages=[{"role": "user", "content": prompt}]
     )

@@ -8,7 +8,7 @@ the period between 200 B.C.E. to 200 C.E.  Loeb maintains that _Abot_
 was originally a composition of the Pharisaic Rabbis who wished to
 indicate that the traditions held and expounded by them, and which the
 Sadducees repudiated, were divine and, in time and sequence,
-uninterruptedly authoritative (8).  This line of continuous tradition
+uninterruptedly authoritative.  This line of continuous tradition
 is plainly seen in the first two chapters.  A second and probably
 later purpose was to present a body of practical maxims and aphorisms
 for the daily guidance of the people.
@@ -839,13 +839,12 @@ the scorners' (8); but if two sit together and interchange words of
 _Torah_, the Divine Presence (9) abides among them; as it is said,
 'Then they that feared the Lord spake one with the other; and the Lord
 hearkened and heard, and a book of remembrance was written before Him,
-for them that feared the Lord, and that thought upon His name,' (10).
+for them that feared the Lord, and that thought upon His name,'.
 Now the Scripture enables me to draw this inference in respect to two
 persons; whence can it be deduced that if even one person sedulously
 occupies himself with the _Torah_, the Holy One, blessed be He,
 appoints unto him a reward?  Because it is said, 'though he sit alone,
-and meditate in stillness, yet he taketh it (the reward) upon him'"
-(11).
+and meditate in stillness, yet he taketh it (the reward) upon him'".
 
       (7) He lived about 120 C.E.  He was the father of Beruriah,
       the wife of Rabbi Meir.
@@ -854,13 +853,7 @@ and meditate in stillness, yet he taketh it (the reward) upon him'"
       delight is in the Law of the Lord."
 
       (9) [shechinah] literally "dwelling," is a name applied to God
-      when He is spoken of as dwelling among men.  See Schechter,
-      _Aspects, en passim_; Abelson, _Immanence of God_, p. 77 _et
-      seq._
-
-      (10) Mal. III, 16.
-
-      (11) Lam. III, 27.
+      when He is spoken of as dwelling among men.
 
 4. R. Simeon (12) said, "If three have eaten at a table and have
 spoken there no words of _Torah_, it is as if they had eaten of
@@ -876,18 +869,12 @@ table that is before the Lord'" (14).
       _ibid._, pp. 211-241.  He was long thought to be the author of
       the well-known kabbalistic work _Zohar_, which was, however,
       probably written in the thirteenth century by Moses Shem Tob
-      de Leon.  See the _Jewish Encyclopedia_, art. _Zohar;_ Graetz,
-      _History_, IV, p. 11 _et seq.;_ Schechter, _Studies_, I, pp.
-      18, 19, 133; and H. Sperling, in _Aspects of the Hebrew
-      Genius_, p. 165 _et seq._
+      de Leon.
 
-      (13) Isa. XXVIII, 8.  The literal interpretation of [bli
+      (13) The literal interpretation of [bli
       makom] is, there is "no place" clean of defilement; but the
-      word [makom] being used to designate God (see above, chapter
-      II, n. 35), suggests the interpretation, "without mention of
-      the name of God."
-
-      (14) Ezek. XLI, 22.
+      word [makom] being used to designate God, suggests the interpretation, 
+      "without mention of the name of God."
 
 5. R. Chanina, the son of Hakinai (15), said, "He who keeps awake at
 night, and goes on his way alone, while turning his heart to vanity,
@@ -914,28 +901,23 @@ kingdom and the yoke of worldly care."
 7. R. Chalafta, the son of Dosa (19), of the village of Chanania said,
 "When ten people sit together and occupy themselves with the _Torah_,
 the _Shechinah_ (20) abides among them, as it is said, 'God standeth
-in the congregation (21) of the godly' (22).  And whence can it be
+in the congregation (21) of the godly'.  And whence can it be
 shown that the same applies to five?  Because it is said, 'He hath
-found his band (23) upon the earth' (24).  And whence can it be shown
+found his band (23) upon the earth'.  And whence can it be shown
 that the same applies to three?  Because it is said, 'He judgeth among
-the judges' (25).  And whence can it be shown that the same applies to
+the judges'.  And whence can it be shown that the same applies to
 two?  Because it is said, 'Then they that feared the Lord spake one
-with the other; and the Lord hearkened, and heard' (26).  And whence
+with the other; and the Lord hearkened, and heard'.  And whence
 can it be shown that the same applies even to one?  Because it is
 said, 'In every place where I cause my name to be remembered I will
-come unto thee and I will bless thee'" (27).
+come unto thee and I will bless thee'".
 
-      (19) He was probably a disciple of R. Meir.  See below, n. 32.
 
-      (20) See above, n. 9.
+      An _edah_ translates literally to "assembly," "congregation," "prayer-meeting,"
+      and consists of at least ten persons.
 
-      (21) An _edah_, "assembly," "congregation," "prayer-meeting,"
-      consists of at least ten persons (_Megillah_, 23b).  See
-      Sulzburger, _The Ancient Hebrew Parliament_, chapter I.
 
-      (22) Ps. LXXXII, 1.
-
-      (23) An _agudah_ (lit., "bundle," "bunch"), "bond," "union,"
+      (23) An _agudah_ (literally, "bundle," "bunch"), "bond," "union,"
       is constituted of at least five, though some authorities
       maintain that it stands for three.  See Taylor, _Sayings_, p.
       46, n. 15.  This word is used in the name of a number of
@@ -943,24 +925,13 @@ come unto thee and I will bless thee'" (27).
       love and mutual assistance. as _Agudat Achim_, "United
       Brethren," etc.
 
-      (24) Amos, IX, 6.
-
-      (25) Ps. LXXXII, 1.  Every _bet din_, "judicial tribunal,"
-      consisted of at least three members (_Sanhedrin_, 3b).
-
-      (26) Mal. III, 16.
-
-      (27) Ex. XX, 24.
 
 8. R. Eleazar of Bertota (28) said, "Give unto Him of what is His, for
 thou and thine are His: this is also found expressed by David, who
 said, 'For all things come of Thee, and of Thine own we have given
-Thee'" (29).
+Thee'"
 
-      (28) He lived during the second century C.E.  See Bacher,
-      _ibid._, pp. 442-445.
-
-      (29) I Chron. XXIX, 14.
+      (28) He lived during the second century C.E.
 
 9. R. Jacob said, "He who is walking by the way and studying, and
 breaks off his study and says, 'How fine is that tree, how fine is
@@ -974,46 +945,35 @@ life" (30).
 (32), "Whoso forgets one word of his study, him the Scripture regards
 as if he had forfeited his life, for it is said, 'Only take heed to
 thyself, and keep thy soul diligently, lest thou forget the things
-which thine eyes have seen' (33).  Now, one might suppose (that the
+which thine eyes have seen'.  Now, one might suppose (that the
 same result follows) even if a man's study has been too hard for him.
 (To guard against such an inference), it is said, 'And lest they
-depart from thy heart all the days of thy life' (34).  Thus a person's
+depart from thy heart all the days of thy life'.  Thus a person's
 guilt is not established until he deliberately and of set purpose
 removes those lessons from his heart."
 
       (31) He lived about 160 C.E.
 
       (32) Rabbi Meir was the celebrated pupil of Akiba.  His wife
-      was the well-known Bruriah.  On his interesting career, see
-      Blumenthal, _Rabbi Meir_, Myers, _The Story of the Jewish
-      People_, I, pp. 189-204, and Danziger, _Jewish Forerunners of
-      Christianity_, pp. 185-210.
-
-      (33) Deut. IV, 9.
-
-      (34) Deut. IV, 9.
+      was the well-known Bruriah.
 
 11. R. Chanina, the son of Dosa (35), said, "He in whom the fear of
 sin precedes wisdom, his wisdom shall endure; but he in whom wisdom
 comes before the fear of sin, his wisdom will not endure" (36).  12.
 He used to say, "He whose works exceed his wisdom, his wisdom shall
 endure; but he whose wisdom exceeds his works, his wisdom will not
-endure" (37).  13. He used to say, "He in whom the spirit of his
+endure".  13. He used to say, "He in whom the spirit of his
 fellow-creatures takes not delight, in him the Spirit of the
 All-present takes not delight."
 
       (35) A contemporary of Jochanan ben Zakkai (10 B.C.E.-90
-      C.E.).  See Friedlander, _Ben Dosa und seine Zeit_ (Prag,
-      1872), and Bacher, _ibid._, 283 _et seq._
+      C.E.).
 
-      (36) Cf. Ps. CXI, 10: "The beginning of wisdom is the fear of
+      (36) "The beginning of wisdom is the fear of
       the Lord."  "A man's fear of sin should be instinctive, rather
       than a result of calculation, . . . a man should build upon
       the foundation of religious feeling, rather than upon
-      philosophy" (Taylor).
-
-      (37) Cf. above, chapter I, 17, "Not learning but doing is the
-      chief thing."
+      philosophy".
 
 14. R. Dosa, the son of Horkinas (38), said, "Morning sleep, midday
 wine, childish babbling, and attending the houses of assembly of the
@@ -1038,35 +998,27 @@ the world to come" (42).
       (42) Knowledge and moral excellence alone are not sufficient.
 
 16. R. Ishmael (43) said, "Be submissive to a superior (44), affable
-to the young (45), and receive all men with cheerfulness" (46).
+to the young, and receive all men with cheerfulness".
 
       (43) Lived about 120 C.E.  See Bacher, _ibid._, pp. 240-271.
 
       (44) Or "be pliant of disposition."
 
-      (45) [l'tishchoret] is variously rendered as the "young"
-      (Maimonides, Bartenora, Geiger, Jastrow), "impressment"
-      (Rashbam, Taylor), "sovereign authority" (Levy, Chald.
-      Worterbuch, _sub_ [shachar (shin-chet-resh)], Fiebig), and "a
-      suppliant" (Singer).
-
-      (46) Cf. chapter I, 15.
-
 17. R. Akiba (47) said, "Jesting and levity lead a man on to lewdness.
  The _Massorah_ (48) is a rampart around the _Torah_; tithes are a
-safeguard to riches (49); good resolves are a fence to abstinence
-(50); a hedge around wisdom is silence" (51).  18. He used to say,
+safeguard to riches; good resolves are a fence to abstinence;
+a hedge around wisdom is silence".  18. He used to say,
 "Beloved is man, for he was created in the image (of God); but it was
 by a special love that it was made known to him that he was created in
-the image of God, as it is said, 'For in the image of God made he man'
-(52).  Beloved are Israel, or they were called children of the
+the image of God, as it is said, 'For in the image of God made he man'.
+Beloved are Israel, or they were called children of the
 All-present, but it was by a special love that it was made known to
 them that they were called children of the All-present, as it is said,
-'Ye are children unto the Lord your God' (53).  Beloved are Israel,
-for unto them was given the desirable instrument (54); but it was by a
+'Ye are children unto the Lord your God'.  Beloved are Israel,
+for unto them was given the desirable instrument; but it was by a
 special love that it was made known to them that that desirable
 instrument was theirs, through which the world was created, as it is
-said, 'For I give you good doctrine; forsake ye not my _Torah_' (55).
+said, 'For I give you good doctrine; forsake ye not my _Torah_'.
 19. Everything is foreseen, yet free will is given (56); and the world
 is judged by grace, yet all is according to the amount of the work"
 (57).  20. He used to say, "Everything is given on pledge (58), and a
@@ -1105,13 +1057,7 @@ is prepared for the feast" (63).
       letter was considered superfluous, finding thereby a basis for
       many oral laws.  His hermeneutical and exegetical activities
       were remarkable.  Many interesting legends have clustered
-      around his name.  See Bacher, _ibid._, 271-348; Meilziner,
-      _Introduction to the Talmud_, pp. 29, 125-126; Isaacs,
-      _Stories from the Rabbis_, p. 61 _et seq.;_  Danziger,
-      _ibid._, pp. 152-184; the _Jewish Encyclopedia_, arts. _Akiba
-      ben Joseph_ and _Akiba ben Joseph in Legend;_ Myers, _Story of
-      the Jewish People_, pp. 171-188; and Geiger, _Judaism and its
-      History_, p. 226 _et seq._, 230 _et seq._
+      around his name.
 
       (48) _Massorah_, from root _masar_, "to deliver," "hand over,"
       "transmit," means a "chain of tradition."  It is used to
@@ -1121,33 +1067,7 @@ is prepared for the feast" (63).
       means the traditional interpretation of the _Torah_.  Cf.
       chapter I, 1, "Moses received the _Torah_ on Sinai, and handed
       it down (_umsarah_) to Joshua," and "make a fence around the
-      _Torah_."  Consult Driver, _Notes on Samuel_, _Intro._, p. 37
-      _et seq._; Schurer, _ibid._, II, i, 328; Taylor, _Sayings_, p.
-      55, n. 33; Friedlander _ibid._, p. 55, 203, 266; _Jewish
-      Encyclopedia s.v.;_ and _The Companion Bible_ (London, Oxford
-      University Press), Pt. I, _Appendix_, 30.
-
-      (49) On tithes, see chapter I, n. 37.  Cf. _Shabbat_, 119a,
-      and _Taanit_, 9a (play on [ayin-shin-resh tof-ayin-shin resh],
-      Deut. XXIV, 22),* [ayin-sh-resh bet-shin-bet-yud-lamed
-      shin-tof-tof-ayin-shin-resh] "give tithes in order that thou
-      mayest become rich."
-
-      [* transcriber's note: this text does not appear to be
-      Deuteronomy XXIV, 22.]
-
-      (50) Lit., "separation," _i.e._ from defilement, hence
-      "sanctity" (Taylor).
-
-      (51) Cf. chapter I, 17.
-
-      (52) Gen. IX, 6.
-
-      (53) Deut. XIV, 1.
-
-      (54) _I.e._, the _Torah_.
-
-      (55) Prov. IV, 2.
+      _Torah_."
 
       (56) The omniscience and prescience of God do not deprive men
       of free will.  Maimonides explains this in the last chapter of
@@ -1161,7 +1081,7 @@ is prepared for the feast" (63).
 
       (58) The world is compared to the office of a merchant.
 
-      (59) Ecc. IX, 12: "for man also knoweth not his time, like the
+      (59) "for man also knoweth not his time, like the
       fishes that are caught in an evil net."
 
       (60) The shop stands for the world and its enjoyments.
@@ -1188,14 +1108,14 @@ To a tree whose branches are many, but whose roots are few; and the
 wind comes and plucks it up, and overturns it upon its face, as it is
 said, 'And he shall be like a lonely juniper tree in the desert, and
 shall not see when good cometh; but shall inhabit the parched places
-in the wilderness, a salt land and not inhabited' (67).  But he whose
+in the wilderness, a salt land and not inhabited'.  But he whose
 works exceed his wisdom, to what is he like?  To a tree whose branches
 are few, but whose roots are many, so that though all the winds in the
 world come and blow upon it, they cannot stir it from its place, as it
 is said, 'And he shall be as a tree planted by the waters; and that
 spreadeth out its roots by the river and shall not perceive when heat
 cometh, but his leaf shall be green; and shall not be troubled in the
-year of drought, neither shall cease from yielding fruit'" (68).
+year of drought, neither shall cease from yielding fruit'".
 
       (64) R. Eleazar ben Azariah, a Mishnaic scholar of the first
       century, was of a rich and influential family, and was a
@@ -1203,8 +1123,7 @@ year of drought, neither shall cease from yielding fruit'" (68).
       the deposition of Gamaliel II, Eleazar, because of his
       popularity and erudition, was chosen to fill the position of
       the president of the academy at Jabneh.  Upon Gamaliel's
-      restoration, he was made vice-president (_Ab bet din_).  See
-      Bacher, _ibid._, 219-240.
+      restoration, he was made vice-president (_Ab bet din_).
 
       (65) Cf. Prov. IX, 10: "The fear of the Lord is the beginning
       of wisdom, and the knowledge of the holy is understanding."
@@ -1212,10 +1131,6 @@ year of drought, neither shall cease from yielding fruit'" (68).
       (66) Where there is a want of the means of sustenance there is
       no studying of _Torah_, and without spiritual nourishment,
       physical nourishment has no value.
-
-      (67) Jer. XVII, 6.
-
-      (68) Jer. XVII, 8.  Cf. verse 12, above.
 
 23. R. Eleazar Chisma (69) said, "The laws concerning the sacrifices
 of birds and the purification of women are essential ordinances (70);
@@ -1240,11 +1155,6 @@ honorable'".
       study of the essentials of _Torah_.
 
 
-
-
-
-
-
 CHAPTER IV
 
 All Israel have a portion in the world to come, and it is said, "And
@@ -1253,16 +1163,16 @@ ever, the branch of my planting, the work of my hands, that I may be
 glorified".
 
 1. Ben Zoma (1) said, "Who is wise?  He who learns from all men, as it
-is said, 'from all my teachers have I gotten understanding' (2).  Who
+is said, 'from all my teachers have I gotten understanding'.  Who
 is mighty?  He who controls his passions, as it is said, 'He that is
 slow to anger is better than the mighty, and he that ruleth over his
-spirit than he that taketh a city' (3).  Who is rich?  He who rejoices
+spirit than he that taketh a city'.  Who is rich?  He who rejoices
 in his portion, as it is said, 'When thou eatest the labor of thine
-hands, happy art thou, and it shall be well with thee' (4); happy art
+hands, happy art thou, and it shall be well with thee'; happy art
 thou in this world, and it shall be well with thee in the world to
 come.  Who is honored?  He who honors others, as it is said, 'For them
 that honor me I will honor, and they that despise me shall be held in
-contempt'" (5).
+contempt'".
 
       (1) Simon ben Zoma and Simon ben Azzai, _Tannaim_ of the
       second century, were generally known as ben Zoma and ben
@@ -1285,19 +1195,9 @@ contempt'" (5).
       interpreters of the Law (_darshanim_) died (_Sotah_, 49b).
       His interpretation of the biblical passage "that thou mayest
       remember when thou camest forth out of Egypt" is found in the
-      _Haggadah_ of Passover eve.  See Bacher, _Agada der Tanaiten_,
-      pp. 425-532; Schechter, _Studies_, I, pp. 129-130; H.
-      Sperling, in _Aspects of the Hebrew Genius_, p. 150.
+      _Haggadah_ of Passover eve.
 
-      (2) Ps. CXIX, 9.
-
-      (3) Prov. XVI, 32.
-
-      (4) Ps. CXXVIII, 2.  The discontented rich man, even, is poor.
-
-      (5) I Sam. II, 30.
-
-2. Ben Azzai (6) said, "Hasten to do even a slight precept (7), and
+2. Ben Azzai (6) said, "Hasten to do even a slight precept, and
 flee from transgression; for one virtue leads to another, and
 transgression draws transgression in its train; for the recompense of
 a virtue is a virtue, and the recompense of a transgression is a
@@ -1314,10 +1214,7 @@ and there is not a thing that has not its place."
       hope for saintliness."  He declared that the greatest
       principle of Judaism is the belief in the common brotherhood
       of all mankind, which he derived from the passage, Genesis VI,
-      1, "This is the generation of Adam (man)."  See Bacher,
-      _ibid._, 409-424.
-
-      (7) Cf. chapter II, 1.
+      1, "This is the generation of Adam (man)."
 
       (8) Well-doing is the fruit of well-doing, and evil-doing the
       fruit of evil-doing.
@@ -1353,21 +1250,17 @@ to learn, and to teach, to observe, and to practise."
 
       (14) To one who learns _Torah_ and does not teach it are
       applied the words in Num. XV, 31: "he hath despised the word
-      of the Lord" (_Sanhedrin_, 99a).
+      of the Lord".
 
 7. R. Zadok said, "Separate not thyself from the congregation; (in the
-judge's office) act not the counsel's part (15); make not of the
+judge's office) act not the counsel's part; make not of the
 _Torah_ a crown wherewith to aggrandize thyself, nor a spade wherewith
 to dig" (16).  So also used Hillel to say, "He who makes a worldly use
-of the crown (of the _Torah_) shall waste away" (17).  Hence thou
+of the crown (of the _Torah_) shall waste away".  Hence thou
 mayest infer that whosoever derives a profit for himself from the
 words of the _Torah_ is helping on his own destruction.
 
-      (15) Cf. chapter I, 8.
-
       (16) _I.e._, for material and selfish ends.
-
-      (17) Cf. chapter I, 13.
 
 8. R. Jose (18) said, "Whoso honors the _Torah_ will himself be
 honored by mankind, but whoso dishonors the _Torah_ will himself be
@@ -1398,13 +1291,11 @@ it in the midst of poverty."
       (21) He lived about the middle of the second century C.E.  He
       was a pupil of R. Ishmael (verse 9).
 
-12. R. Meir (22) said, "Lessen thy toil for worldly goods, and be busy
+12. R. Meir said, "Lessen thy toil for worldly goods, and be busy
 in the _Torah_; be humble of spirit before all men; if thou neglectest
 the _Torah_, many causes for neglecting it will be present themselves
 to thee, but if thou laborest in the _Torah_, He has abundant
 recompense to give thee."
-
-      (22) See chapter III, n. 32.
 
 13. R. Elieser (23), the son of Jacob, said, "He who does one precept
 has gotten himself one advocate; and he who commits one transgression
@@ -1430,9 +1321,7 @@ is not in the Name of Heaven will not in the end be established."
       agriculturists.  Generally, the Rabbi studied during
       two-thirds of the day, and worked at his trade during the
       remainder.  Those engaged in agriculture would study in the
-      winter and till the soil in the summer.  Consult Franz
-      Delitzch, _Jewish Artisan Life in the Time of Christ_; and S.
-      Meyer, _Arbeit und Handwerk im Talmud_, Berlin, 1878.
+      winter and till the soil in the summer.
 
 15. R. Eleazer, the son of Shammua (25), said, "Let the honor of thy
 disciple be as dear to thee as thine own, and the honor of thine
@@ -1442,28 +1331,22 @@ like the fear of Heaven."
       (25) He lived about 150 C.E.
 
 16. R. Judah (26) said, "Be cautious in study, for an error in study
-may amount to presumptuous sin" (27).
+may amount to presumptuous sin".
 
       (26) R. Judah ben Ilai lived about 140 C.E.
 
-      (27) Cf. Chapter III, 10.
-
-17. R. Simeon (28) said, "There are three crowns: the crown of
+17. R. Simeon said, "There are three crowns: the crown of
 _Torah_, the crown of priesthood, and the crown of royalty; but the
 crown of a good name excels them all."
-
-      (28) On R. Simeon ben Yochai, see chapter III, n. 12.
 
 18. R. Nehorai (29) said, "Betake thyself to a home of the _Torah_
 (30), and say not that the _Torah_ will come after thee; for there thy
 associates will establish thee in the possession of it; and lean not
-upon thine own understanding" (31).
+upon thine own understanding".
 
       (29) He lived about 130 C.E.
 
       (30) If there is no teacher where you live.
-
-      (31) Prov. III, 5.
 
 19. R. Jannia said, "It is not in our power (to explain) either the
 prosperity of the wicked or the afflictions of the righteous."
@@ -1501,20 +1384,17 @@ and rush not to see him in the hour of his disgrace."
 24. Samuel (37), the younger, used to say, "Rejoice not when thine
 enemy falleth, and let not thine heart be glad when he stumbleth: lest
 the Lord see it and it displease him, and he turn away his wrath from
-him" (38).
+him".
 
       (37) Samuel (about 120 C.E.) is said to have composed, at the
       request of R. Gamaliel II, the prayer against heretics, added
-      to the "Eighteen Benedictions" (_Shemoneh Esreh_).  See the
-      _Jewish Encyclopedia_, vol. XI, p. 281.
-
-      (38) Prov. XXIV, 17, 18.
+      to the "Eighteen Benedictions."
 
 25. Elisha, the son of Abuyah (39), said, "If one learns as a child,
 what is it like?  Like ink written in clean paper.  If one learns as
 an old man, what is it like?  Like ink written on used paper" (40).
 
-      (39) See n. 1, above.  Elisha ben Abuyah, otherwise known as
+      (39) Elisha ben Abuyah, otherwise known as
       Acher, lived at the end of the first and the beginning of the
       second century.  He is charged by the Rabbis with having aided
       the Romans in their attempts to suppress the Jewish religion,
@@ -1526,9 +1406,7 @@ an old man, what is it like?  Like ink written on used paper" (40).
       regard for Elisha's intellectual worth.  When reproached for
       this, R. Meir said, "I eat the kernel, and throw away the
       husks."  Elisha is often referred to as the "Faust of the
-      _Talmud_."  On his identification with the Apostle Paul, see
-      I. M. Wise, _The Origin of Christianity_, p. 311, and
-      Danziger, _ibid._, pp. 304-306.  Some have even identified him
+      _Talmud_." Some have even identified him
       with Jesus.  In _Abot de-Rabbi Natan_, a parable that is very
       similar to that of Jesus, in Luke VI 47-49, is attributed to
       Elisha.  "A man who does good deeds and diligently studies the
@@ -1539,12 +1417,7 @@ an old man, what is it like?  Like ink written on used paper" (40).
       life, in spite of having deeply studied the Law, to whom is he
       like?  He is like a man building a house with tiles for a
       foundation and with heavy stones (on the roof); and when a
-      little rain comes, straightway the house falls in" (G.
-      Friedlander's translation, in _The Jewish Sources of the
-      SErmon on the Mount_, pp. 259-260).  On the career of Acher,
-      see Bacher, _ibid._, pp. 432-436; Graetz, _History_, II,
-      _passim_; Myers, _ibid._, pp. 200-202; and Strack, _Einleitung
-      in den Talmud_, p. 91.
+      little rain comes, straightway the house falls in".
 
       (40) What one learns in youth, one retains, while the opposite
       is true of learning in old age.  The Rabbis, elsewhere, liken
@@ -1562,12 +1435,9 @@ wine."
       (42) _I.e._, wine that is not forty days old, and not yet
       clarified.
 
-27. Rabbi Meir said (43), "Look not at the flask, but at what it
+27. Rabbi Meir said, "Look not at the flask, but at what it
 contains: there may be a new flask full of old wine, and an old flask
 that has not even new wine in it" (44).
-
-      (43) Some texts read "Rabbi," _i.e._, Judah ha-Nasi (see
-      chapter II, n. 1).
 
       (44) This verse expresses an opinion contrary to that of the
       preceding one.  The mind of a young man may be more mature
@@ -1578,13 +1448,11 @@ a man from the world" (46).
 
       (45) A contemporary of Judah ha-Nasi.
 
-      (46) Cf. chapter II, 16.
-
 29. He used to say, "They that are born are doomed to die; and the
 dead to be brought to life again; and the living to be judged, to
 know, to make known, and to be made conscious that He is God, He the
 Maker, He the Creator, He the Discerner (47), He the Judge, He the
-Witness (48), He the Accuser; He it is that will in future judge,
+Witness, He the Accuser; He it is that will in future judge,
 blessed be He, with Whom there is no unrighteousness, nor
 forgetfulness, nor respect of persons, nor taking of bribes (49); and
 know also that everything is according to the reckoning (50); and let
@@ -1594,10 +1462,8 @@ born, and thou livest perforce, and perforce thou wilt die, and
 perforce thou wilt in the future have to give account and reckoning
 before the Supreme King of kings, the Holy One, blessed be He."
 
-      (47) Cf. Ps. XXXIII, 15: "He fashioneth their hearts
+      (47) "He fashioneth their hearts
       altogether; he hath regard to all their works."
-
-      (48) Cf. Mal. III, 5.
 
       (49) Cf. II Chron. XIX, 7: "Take heed and act; for with the
       Lord our God there is no injustice, nor respect for persons,
@@ -1619,21 +1485,13 @@ before the Supreme King of kings, the Holy One, blessed be He."
       one is constrained to journey, walk, stand, etc., for these
       are in the power of man, and are dependent upon his own free
       will, and not upon any (external) compelling force, as we have
-      explained in chapter eight."  See Rawicz, _Commentar des
-      Maimonides_, p. 89, n. 4, and Garfinkle, _ibid._, p. 88 _et
-      seq._
+      explained in chapter eight."
 
 Rabbi Chanania, the son of Akashia, said, "The Holy One, blessed be
 He, was pleased to make Israel worthy; wherefore He gave them a
 copious _Torah_ and many commandments, as it is said, 'It pleased the
 Lord, for his righteousness' sake, to magnify the _Torah_ and make it
 honorable'".
-
-
-
-
-
-
 
 CHAPTER V
 
@@ -1688,7 +1546,7 @@ others say, tongs, also, made with tongs (26).
       commentators count the opening phrase of this chapter, "In the
       beginning God created the heavens and the earth," as one of
       the sayings, maintaining that the idea of saying is implied in
-      it.  Cf. Ps. XXXIII, 16.  According to the Rabbis, the wicked
+      it. According to the Rabbis, the wicked
       destroy and the righteous preserve the world, and, since it
       required ten sayings to create the world, the guilt of the
       sinner and the righteousness of the just are emphasized more
@@ -1697,7 +1555,7 @@ others say, tongs, also, made with tongs (26).
       (2) The ten generations are Adam, Seth, Enosh, Kenan,
       Mahalalel, Jared, Enoch, Methusaleh, Lamech, and Noah.  The
       period from Adam to Noah is known as the "generation of the
-      flood" (_dor ha-mabbul_).
+      flood".
 
       (3) These are Shem, Arpachshad, Shelah, Eber, Peleg, Reu,
       Serug, Nahor, Terah, and Abraham.  Noah's good deeds were
@@ -1711,10 +1569,7 @@ others say, tongs, also, made with tongs (26).
       of Sarah's sterility, XVI, 2; (6) the circumcision, XVII, 10;
       (7) the seizing of Sarah by Abimelech, king of Gerar, XX, 2;
       (8) the banishment of Hagar, XXI, 10; (9) the banishment of
-      Ishmael, XXI, 10; and (10) God's command to sacrifice Isaac,
-      XXII, 2.  See _Pirke de-Rabbi Eliezer_, chapter 24, and
-      Friedlander, G., _Rabbinic philosophy and Ethics_ (London,
-      1912), p. 75, n. 4.
+      Ishmael, XXI, 10; and (10) God's command to sacrifice Isaac.
 
       (5) For God.  Some interpreters explain this, however, as "the
       love of God for Abraham."
@@ -1733,15 +1588,11 @@ others say, tongs, also, made with tongs (26).
       tribes could see one another; (9) fresh drinking water flowed
       from the congealed water; (10) after Israel had partaken of
       the drinking water, it became congealed, and did not wet the
-      ground under foot.  See Ginzberg, _Legends of the Jews_, III,
-      p. 21 _et seq._
+      ground under foot.
 
       (8) This verse is not found in the Talmudic versions of
       _Abot_.  The plagues at the sea are alluded to in the "Song of
-      Moses," Ex. XV.  See the commentary of Bartenora.
-
-      (9) Num. XIV, 22.  The ten are enumerated by Maimonides,
-      Bartenora, Hoffmann, and others.
+      Moses."
 
       (10) The fly is a symbol of impurity.
 
@@ -1771,35 +1622,19 @@ others say, tongs, also, made with tongs (26).
       (17) To swallow Korah and his followers.  See Num. XVI, 30.
 
       (18) Which supplied the Israelites with water during their
-      wandering in the wilderness.  See Num. XXI, 16, and _Shabbat_,
-      35a.
-
-      (19) Balaam's ass.  See Num. XXII, 28.
-
-      (20) Ge. IX, 19.
-
-      (21) Ex. XV, 16.
-
-      (22) Of Moses.  See _ibid._, IV, 17.
+      wandering in the wilderness.
 
       (23) A miraculous worm that split stones by its look.  It was
       used, according to legend, to engrave the names of the tribes
       on the jewels of the ephod of the high-priest, and was also
       employed by Solomon in the construction of the Temple, in
-      which no tools of iron were used.  See _Gittin_, 68a, and
-      _Sotah_, 48b.  Consult P. Cassel, _Shamir, ein archaol.
-      Beitrag zur Natur und Sagenkunde_, Erfurt, 1856, and art.
-      _Shamir_, in _Jewish Encyclopedia_.
-
-      (24) Deut. XXXIV, 6.
-
-      (25) Gen. XXII, 13.
+      which no tools of iron were used.
 
       (26) An allusion to a saying found in _Tosefta Erubin_, "Tongs
       are made with tongs; but how was the first pair made?  It
       could only have been a creation of God."  One instrument
       presupposes another; one thing is the cause of another, but
-      the original cause is God.  Cf. _Pesachim_, 54a.
+      the original cause is God.
 
 10. There are seven marks of an uncultured, and seven of a wise man.
 The wise man does not speak before him who is greater than he in
@@ -1835,43 +1670,26 @@ the fruits of the seventh year (31), and at the conclusion of the
 Feast of Tabernacles in each year, for robbing the poor of the grants
 legally assigned to them (38).
 
-      (27) See chapter I, n. 37.
-
       (28) Of war, when agriculture is neglected, and crops are
       destroyed, etc.
 
-      (29) Num. XV, 20: "Ye shall offer up a cake of the first of
+      (29) It is written "Ye shall offer up a cake of the first of
       your dough for a heave offering."  This commandment is
       observed in spirit to-day by the Jewish housewife, who takes a
       part of bread which is kneaded, and burns it, after reciting
       the blessing, "Blessed art Thou, O Lord, our God, King of the
       universe, Who has sanctified us by Thy commandments, and
-      commanded us to separate the _challah_."  The ninth treatise
-      of the _Order Zeraim_ of the _Mishnah_ is called _Challah._
-      See Friedlander, _Jewish Religion_, p. 357.
+      commanded us to separate the _challah_."
 
       (30) The execution of which is in the hands of God.
 
       (31) That is, the Sabbatical year or the year of release
-      (_ha-shemittah_).  See Ex. XXIII, 10 _et seq._, and Lev. XXV,
-      1-7.  It is commanded that the land be allowed to lie fallow
-      during that year, that there be no sowing, nor reaping, nor
-      pruning of the vineyards, and that the servants, strangers,
-      and animals, as well as the owner, shall share in the
-      spontaneous growth of the fields and the vineyards.  See also
-      Deut. XV, 1-11, and _Tractate Shebiit_ of the _Mishnah_.
+      (_ha-shemittah_).
 
       (32) _I.e._, war.
 
       (33) By prohibiting the permissible and permitting the
       prohibited.
-
-      (34) Cf. chapter IV, 9.
-
-      (35) Cf. chapter IV, 5.
-
-      (36) See Deut. XIV, 28, 29; XXVI, 12, and also above, chapter
-      I, n. 37.
 
       (37) Of the septennial cycle.  The tithe was to be brought at
       the end of _every_ three years.
@@ -1983,18 +1801,18 @@ at ninety, (he bends beneath) the weight of years, at a hundred
 he is as if he were already dead and had passed away from the world."
 
       "Our Father which is in Heaven" of the "Lord's
-      Prayer" (Matt. VI, 9).  The conception of God as a "Father"
+      Prayer".  The conception of God as a "Father"
       goes back to earliest times. "Doubtless Thou art our Father."  
       In the _Mishnah_ we find, "Who purifies you? Your Father which is in 
-      Heaven" (_Yoma_ VII, 8); "On whom have we to lean?  On our Father 
-      which is in Heaven" (_Sotah_, IX, 15), and similar passages.  
+      Heaven"; "On whom have we to lean?  On our Father 
+      which is in Heaven", and similar passages.  
       The Rabbis constantly referred to God as "Father".  
       They took issue, of course, with the New Testament
       conception of God, in not admitting and in denouncing the idea
       of a mediator. To them all mankind were the sons of God.
       That the Rabbis borrowed this God-idea and the expression "Our
       Father which is in Heaven" from Christianity or worship of Christ 
-      is untenable, for, as Herford (_Pharisaism_, 120 _et seq._) points out, 
+      is untenable, for, as Herford points out, 
       such borrowing would have been abhorrent to them.  This expression
       was undoubtedly current long before and during the time of
       Jesus Christ, and it represented a conception of the divine
@@ -2040,15 +1858,12 @@ he is as if he were already dead and had passed away from the world."
       incomplete in parts.
 
       The phrase; "at twenty, to pursue."  This has been variously
-      interpreted as follows: (1) for seeking a livelihood
-      (Bartenora, Hoffmann, Strack, Singer); (2) for the pursuit of
-      military service (cf. Num. I, 3, and Deut. XXIV, 5; _Machzor
-      Vitri_, p. 551.  Shakespeare's "Then a soldier"); (3) the age
-      "to pursue him for his deeds," for the celestial _bet din_
+      interpreted as follows: (1) for seeking a livelihood; 
+      (2) for the pursuit of military service; (3) the age
+      "to pursue him for his deeds," for the celestial
       (tribunal) does not punish at an age less than twenty
-      (Bartenora's second explanation; cf. Rashi on Num. XVI, 27);
-      (4) for the pursuit of ideals (Taylor); (5) to pursue the
-      commandments (_Siddur Korban Minchah_).
+      (Bartenora's second explanation; (4) for the pursuit of 
+      ideals (Taylor); (5) to pursue the commandments.
 
 
 25. Ben Bag Bag said, "Turn it, and turn it over again, for
@@ -2098,8 +1913,8 @@ the _Torah_ is said to be under the divine censure, as it is said, 'As
 a ring of gold in a swine's snout, so is a fair woman who turneth
 aside from discretion'; and it says, 'And the tables were the work
 of God, and the writing was the writing of God, graven upon the
-tables.' Read not freedom from obligation, but the freedomof responsibility, 
-for no man isfree but he who occupies himself in the learning of _Torah_. 
+tables.' Read not freedom from obligation, but the freedom of responsibility, 
+for no man is free but he who occupies himself in the learning of _Torah_. 
 But whosoever labors in the _torah_, behold he shall be exalted, as it is
 said, 'And from _Mattanah_ to _Nachaliel_, and from _Nachaliel_ to
 _Bamot_'".
