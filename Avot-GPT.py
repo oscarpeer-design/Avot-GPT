@@ -19,25 +19,52 @@ COLLECTION_NAME = "documents"
 
 SECTION_PATTERN = r'(CHAPTER\s+[IVXLC\d]+\.?)'
 
-CHUNK_SIZE = 300
+CHUNK_SIZE = 350
 
-TOP_K_RETRIEVAL_RESULTS = 25 # Keep high and then reduce later
+TOP_K_RETRIEVAL_RESULTS = 15
 
 FINAL_RERANKED_RESULTS = 5
 
-MINIMUM_CHUNK_WORD_COUNT = 25
+NEIGHBOR_CHUNK_RADIUS = 1
 
-MINIMUM_CONTEXT_WORD_COUNT = 10
+MINIMUM_CHUNK_WORD_COUNT = 10
+
+MINIMUM_CONTEXT_WORD_COUNT = 30
+
+SIMILARITY_THRESHOLD = 0.28
 
 OLLAMA_MODEL_NAME = "phi3"
 
-OLLAMA_TEMPERATURE = 0.1 # Keep 0.05 to 0.2 to prevent hallucinations
+OLLAMA_TEMPERATURE = 0.1
 
-OLLAMA_CONTEXT_WINDOW = 2048
+OLLAMA_CONTEXT_WINDOW = 1024
 
-OLLAMA_MAX_TOKENS = 200
+OLLAMA_MAX_TOKENS = 120
 
-SIMILARITY_THRESHOLD = 0.2 # verify relevance
+
+# =========================================================
+# QUERY EXPANSION RULES
+# =========================================================
+
+QUERY_EXPANSIONS = {
+
+    "worth": "honor virtue character righteousness",
+
+    "wealth": "rich poverty money possessions",
+
+    "study": "torah wisdom learning knowledge",
+
+    "good person": "virtue righteousness character",
+
+    "anger": "patience temper self control",
+
+    "wisdom": "understanding knowledge torah",
+
+    "israel": "the jewish people",
+
+    "zionism": "the land of israel nationalism"
+}
+
 
 # =========================================================
 # MODEL INITIALIZATION
@@ -46,7 +73,6 @@ SIMILARITY_THRESHOLD = 0.2 # verify relevance
 embedding_model = SentenceTransformer(
     "all-MiniLM-L6-v2"
 )
-
 
 # =========================================================
 # DATABASE INITIALIZATION
@@ -59,6 +85,7 @@ def initialize_vector_database():
     )
 
     try:
+
         chroma_client.delete_collection(
             COLLECTION_NAME
         )
@@ -85,27 +112,25 @@ def load_document_text(document_path):
         encoding="utf-8"
     )
 
+
 # =========================================================
 # TEXT SANITIZATION
 # =========================================================
 
 def sanitize_document_text(raw_document_text):
 
-    # Remove bracket citations
     raw_document_text = re.sub(
         r'\[[^\]]*\]',
         '',
         raw_document_text
     )
 
-    # Remove parenthetical citations
     raw_document_text = re.sub(
         r'\(\d+\)',
         '',
         raw_document_text
     )
 
-    # Remove editorial phrases
     raw_document_text = re.sub(
         r'To see more[^.]*\.',
         '',
@@ -113,7 +138,6 @@ def sanitize_document_text(raw_document_text):
         flags=re.IGNORECASE
     )
 
-    # Normalize whitespace
     raw_document_text = re.sub(
         r'\s+',
         ' ',
@@ -124,7 +148,7 @@ def sanitize_document_text(raw_document_text):
 
 
 # =========================================================
-# SECTION DETECTION
+# SECTION EXTRACTION
 # =========================================================
 
 def extract_document_sections(
@@ -154,11 +178,25 @@ def extract_document_sections(
         )
 
         structured_sections.append({
+
             "title": section_title,
+
             "text": section_text
         })
 
     return structured_sections
+
+
+# =========================================================
+# SENTENCE SPLITTING
+# =========================================================
+
+def split_text_into_sentences(text):
+
+    return re.split(
+        r'(?<=[.!?])\s+',
+        text
+    )
 
 
 # =========================================================
@@ -180,28 +218,33 @@ def build_section_aware_chunks(
 
         section_text = section["text"]
 
-        section_sentences = re.split(
-            r'(?<=[.!?])\s+',
-            section_text
+        section_sentences = (
+            split_text_into_sentences(
+                section_text
+            )
         )
 
         current_chunk_sentences = []
 
-        current_chunk_length = 0
+        current_chunk_character_count = 0
 
         for sentence in section_sentences:
 
-            if (
-                current_chunk_length +
-                len(sentence)
-            ) < chunk_size:
+            sentence_length = len(sentence)
+
+            projected_chunk_size = (
+                current_chunk_character_count
+                + sentence_length
+            )
+
+            if projected_chunk_size < chunk_size:
 
                 current_chunk_sentences.append(
                     sentence
                 )
 
-                current_chunk_length += len(
-                    sentence
+                current_chunk_character_count += (
+                    sentence_length
                 )
 
             else:
@@ -211,8 +254,11 @@ def build_section_aware_chunks(
                 )
 
                 section_aware_chunks.append({
+
                     "chunk_id": chunk_id,
+
                     "section": section_title,
+
                     "text": chunk_text
                 })
 
@@ -222,11 +268,10 @@ def build_section_aware_chunks(
                     sentence
                 ]
 
-                current_chunk_length = len(
-                    sentence
+                current_chunk_character_count = (
+                    sentence_length
                 )
 
-        # Flush remaining sentences
         if current_chunk_sentences:
 
             chunk_text = " ".join(
@@ -234,8 +279,11 @@ def build_section_aware_chunks(
             )
 
             section_aware_chunks.append({
+
                 "chunk_id": chunk_id,
+
                 "section": section_title,
+
                 "text": chunk_text
             })
 
@@ -263,7 +311,7 @@ def generate_normalized_embedding(text):
 
 
 # =========================================================
-# VECTOR DATABASE INDEXING
+# DOCUMENT INDEXING
 # =========================================================
 
 def index_document_chunks(
@@ -271,35 +319,74 @@ def index_document_chunks(
     section_aware_chunks
 ):
 
-    for chunk_data in section_aware_chunks:
+    chunk_texts = [
 
-        chunk_text = chunk_data["text"]
+        chunk["text"]
 
-        section_title = chunk_data["section"]
+        for chunk in section_aware_chunks
+    ]
 
-        chunk_embedding = (
-            generate_normalized_embedding(
-                chunk_text
-            )
+    chunk_embeddings = embedding_model.encode(
+        chunk_texts,
+        normalize_embeddings=True
+    )
+
+    # Batch each chunk embedding to save processing power
+    for chunk_data, chunk_embedding in zip(
+        section_aware_chunks,
+        chunk_embeddings
+    ):
+
+        chunk_data["embedding"] = (
+            chunk_embedding.tolist()
         )
 
         document_collection.add(
 
-            documents=[chunk_text],
+            documents=[
+                chunk_data["text"]
+            ],
 
-            embeddings=[chunk_embedding],
+            embeddings=[
+                chunk_data["embedding"]
+            ],
 
             metadatas=[{
-                "section": section_title,
-                "chunk_id": chunk_data[
-                    "chunk_id"
-                ]
+
+                "chunk_id":
+                chunk_data["chunk_id"],
+
+                "section":
+                chunk_data["section"]
             }],
 
             ids=[
                 str(chunk_data["chunk_id"])
             ]
         )
+
+
+# =========================================================
+# QUERY EXPANSION
+# =========================================================
+
+def expand_user_query(user_query):
+
+    expanded_query = user_query
+
+    lower_query = user_query.lower()
+
+    for keyword, expansion in (
+        QUERY_EXPANSIONS.items()
+    ):
+
+        if keyword in lower_query:
+
+            expanded_query += (
+                " " + expansion
+            )
+
+    return expanded_query
 
 
 # =========================================================
@@ -313,84 +400,209 @@ def search_vector_database(
 ):
 
     return document_collection.query(
+
         query_embeddings=[query_embedding],
+
         n_results=top_k_results
     )
 
 
 # =========================================================
-# FILTER RETRIEVED DOCUMENTS
+# BUILD RETRIEVED CHUNK OBJECTS
 # =========================================================
 
-def filter_retrieved_documents(
-    retrieved_documents,
+def build_retrieved_chunk_objects(
+    search_results,
+    chunk_lookup
+):
+
+    retrieved_documents = (
+        search_results["documents"][0]
+    )
+
+    retrieved_metadatas = (
+        search_results["metadatas"][0]
+    )
+
+    retrieved_chunk_objects = []
+
+    # Batch embeddings and enrich retrieved chunks with cached embeddings
+    for document_text, metadata in zip(
+        retrieved_documents,
+        retrieved_metadatas
+    ):
+
+        chunk_id = metadata["chunk_id"]
+
+        original_chunk = (
+            chunk_lookup[chunk_id]
+        )
+
+        retrieved_chunk_objects.append({
+
+            "chunk_id": chunk_id,
+
+            "section": metadata["section"],
+
+            "text": document_text,
+
+            "embedding":
+            original_chunk["embedding"]
+        })
+
+    return retrieved_chunk_objects
+
+
+# =========================================================
+# FILTER RETRIEVED CHUNKS
+# =========================================================
+
+def filter_retrieved_chunks(
+    retrieved_chunk_objects,
     minimum_chunk_word_count
 ):
 
-    return [
+    filtered_chunks = []
 
-        document
+    for chunk_object in (
+        retrieved_chunk_objects
+    ):
 
-        for document in retrieved_documents
+        if (
+            len(
+                chunk_object["text"].split()
+            )
+            >= minimum_chunk_word_count
+        ):
 
-        if len(document.split())
-        > minimum_chunk_word_count
-    ]
+            filtered_chunks.append(
+                chunk_object
+            )
+
+    return filtered_chunks
 
 
 # =========================================================
-# RERANK DOCUMENTS
+# RERANK RETRIEVED CHUNKS
 # =========================================================
 
-def rerank_documents(
+def rerank_retrieved_chunks(
     query_embedding,
-    retrieved_documents,
+    retrieved_chunk_objects,
     reranked_result_count
 ):
 
-    reranked_documents = []
+    reranked_chunks = []
 
-    for retrieved_document in retrieved_documents:
-
-        document_embedding = (
-            generate_normalized_embedding(
-                retrieved_document
-            )
-        )
+    for chunk_object in (
+        retrieved_chunk_objects
+    ):
 
         similarity_score = np.dot(
+
             query_embedding,
-            document_embedding
+
+            chunk_object["embedding"]
         )
 
-        reranked_documents.append(
-            (
-                similarity_score,
-                retrieved_document
+        if (
+            similarity_score
+            >= SIMILARITY_THRESHOLD
+        ):
+
+            chunk_object[
+                "similarity_score"
+            ] = similarity_score
+
+            reranked_chunks.append(
+                chunk_object
             )
-        )
 
-    reranked_documents.sort(
+    reranked_chunks.sort(
+
         reverse=True,
-        key=lambda item: item[0]
+
+        key=lambda chunk: (
+            chunk["similarity_score"]
+        )
     )
 
-    # Prevent weak content from comprising main answer
-    reranked_documents = [
-    doc for score, doc in reranked_documents
-    if score > SIMILARITY_THRESHOLD
+    return reranked_chunks[
+        :reranked_result_count
     ]
 
-    return [
+# =========================================================
+# NEIGHBOR CHUNK EXPANSION
+# =========================================================
 
-        document
+def expand_neighbor_chunks(
+    chunk_lookup,
+    retrieved_chunk_objects,
+    neighbor_radius
+):
 
-        for document
-        in reranked_documents[
-            :reranked_result_count
-        ]
-    ]
+    expanded_chunks = []
 
+    seen_chunk_ids = set()
+    # Use dictionary lookups to speed up retrieval
+    for retrieved_chunk in (
+        retrieved_chunk_objects
+    ):
+
+        center_chunk_id = (
+            retrieved_chunk["chunk_id"]
+        )
+
+        center_section = (
+            retrieved_chunk["section"]
+        )
+
+        for offset in range(
+            -neighbor_radius,
+            neighbor_radius + 1
+        ):
+
+            target_chunk_id = (
+                center_chunk_id + offset
+            )
+
+            matching_chunk = (
+                chunk_lookup.get(
+                    target_chunk_id
+                )
+            )
+
+            if not matching_chunk:
+                continue
+
+            if (
+                matching_chunk["section"]
+                != center_section
+            ):
+                continue
+
+            if (
+                target_chunk_id
+                in seen_chunk_ids
+            ):
+                continue
+
+            expanded_chunks.append(
+                matching_chunk
+            )
+
+            seen_chunk_ids.add(
+                target_chunk_id
+            )
+
+    expanded_chunks.sort(
+
+        key=lambda chunk: (
+            chunk["chunk_id"]
+        )
+    )
+
+    return expanded_chunks
 
 # =========================================================
 # RETRIEVAL PIPELINE
@@ -398,43 +610,74 @@ def rerank_documents(
 
 def retrieve_relevant_chunks(
     document_collection,
+    chunk_lookup,
     user_query
 ):
 
+    expanded_query = (
+        expand_user_query(
+            user_query
+        )
+    )
+
     query_embedding = (
         generate_normalized_embedding(
-            user_query
+            expanded_query
         )
     )
 
     search_results = (
         search_vector_database(
+
             document_collection,
+
             query_embedding,
+
             TOP_K_RETRIEVAL_RESULTS
         )
     )
 
-    retrieved_documents = (
-        search_results["documents"][0]
+    retrieved_chunk_objects = (
+        build_retrieved_chunk_objects(
+
+            search_results,
+
+            chunk_lookup
+        )
     )
 
-    filtered_documents = (
-        filter_retrieved_documents(
-            retrieved_documents,
+    filtered_chunk_objects = (
+        filter_retrieved_chunks(
+
+            retrieved_chunk_objects,
+
             MINIMUM_CHUNK_WORD_COUNT
         )
     )
 
-    reranked_documents = (
-        rerank_documents(
+    reranked_chunk_objects = (
+        rerank_retrieved_chunks(
+
             query_embedding,
-            filtered_documents,
+
+            filtered_chunk_objects,
+
             FINAL_RERANKED_RESULTS
         )
     )
 
-    return reranked_documents
+    expanded_chunk_objects = (
+        expand_neighbor_chunks(
+
+            chunk_lookup,
+
+            reranked_chunk_objects,
+
+            NEIGHBOR_CHUNK_RADIUS
+        )
+    )
+
+    return expanded_chunk_objects
 
 
 # =========================================================
@@ -442,10 +685,29 @@ def retrieve_relevant_chunks(
 # =========================================================
 
 def build_retrieved_context(
-    retrieved_chunks
+    retrieved_chunk_objects
 ):
 
-    return "\n".join(retrieved_chunks)
+    context_sections = []
+
+    for chunk_object in (
+        retrieved_chunk_objects
+    ):
+
+        formatted_chunk = (
+
+            f"[{chunk_object['section']}]\n"
+
+            f"{chunk_object['text']}"
+        )
+
+        context_sections.append(
+            formatted_chunk
+        )
+
+    return "\n\n".join(
+        context_sections
+    )
 
 
 # =========================================================
@@ -458,13 +720,18 @@ def build_prompt(
 ):
 
     return f"""
-You are a strict retrieval-based assistant.
+You are a retrieval-based assistant.
 
-RULES:
-- ONLY use context
-- If answer is partially missing, say "not found"
-- NEVER attempt interpretation
-- NEVER explain if not explicitly stated
+STRICT RULES:
+- ONLY answer using the provided context
+- NEVER use outside knowledge
+- NEVER infer missing information
+- NEVER generalize
+- NEVER summarize broadly
+- ONLY state information explicitly written
+- ONLY answer in complete full sentences.
+- If the answer is missing, say:
+"I don't know based on the provided context."
 
 Context:
 {retrieved_context}
@@ -477,7 +744,7 @@ Answer:
 
 
 # =========================================================
-# RESPONSE GENERATION
+# MODEL RESPONSE GENERATION
 # =========================================================
 
 def generate_model_response(prompt):
@@ -490,20 +757,18 @@ def generate_model_response(prompt):
 
         options={
 
-            "num_ctx": (
-                OLLAMA_CONTEXT_WINDOW
-            ),
+            "num_ctx":
+            OLLAMA_CONTEXT_WINDOW,
 
-            "num_predict": (
-                OLLAMA_MAX_TOKENS
-            ),
+            "num_predict":
+            OLLAMA_MAX_TOKENS,
 
-            "temperature": (
-                OLLAMA_TEMPERATURE
-            )
+            "temperature":
+            OLLAMA_TEMPERATURE
         },
 
         messages=[
+
             {
                 "role": "user",
                 "content": prompt
@@ -512,31 +777,40 @@ def generate_model_response(prompt):
     )
 
 # =========================================================
-# QUERY NORMALISATION
+# QUERY PREPROCESSING
 # =========================================================
 
-def preprocess_query(query):
-    return query.lower().strip()
+def preprocess_query(user_query):
+    return user_query.lower().strip()
 
 # =========================================================
-# CHAT PIPELINE
+# ANSWER USER QUERY
 # =========================================================
 
 def answer_user_query(
     document_collection,
+    all_chunks,
     user_query
 ):
 
     retrieved_chunks = (
         retrieve_relevant_chunks(
+
             document_collection,
+
+            all_chunks,
+
             user_query
         )
     )
 
-    # Fast fail if retrieval is weak
     if not retrieved_chunks:
-        return "No relevant context found."
+
+        print(
+            "\nNo relevant context found."
+        )
+
+        return
 
     retrieved_context = (
         build_retrieved_context(
@@ -554,8 +828,8 @@ def answer_user_query(
     ):
 
         print(
-            "\nNot enough relevant "
-            "context to answer safely."
+            "\nNot enough context "
+            "to answer safely."
         )
 
         return
@@ -566,22 +840,31 @@ def answer_user_query(
     )
 
     model_response = (
-        generate_model_response(prompt)
+        generate_model_response(
+            prompt
+        )
     )
 
     print("\nAnswer:\n")
 
-    for response_chunk in model_response:
+    for response_chunk in (
+        model_response
+    ):
 
         print(
-            response_chunk["message"]["content"],
+
+            response_chunk[
+                "message"
+            ]["content"],
+
             end="",
+
             flush=True
         )
 
 
 # =========================================================
-# MAIN APPLICATION PIPELINE
+# MAIN APPLICATION
 # =========================================================
 
 def main():
@@ -604,22 +887,35 @@ def main():
 
     structured_sections = (
         extract_document_sections(
+
             sanitized_document_text,
+
             SECTION_PATTERN
         )
     )
 
     section_aware_chunks = (
         build_section_aware_chunks(
+
             structured_sections,
+
             CHUNK_SIZE
         )
     )
 
     index_document_chunks(
+
         document_collection,
+
         section_aware_chunks
     )
+
+    chunk_lookup = {
+
+        chunk["chunk_id"]: chunk
+
+        for chunk in section_aware_chunks
+    }
 
     print(
         "\nDocument indexed successfully."
@@ -630,14 +926,25 @@ def main():
         user_query = input(
             "\nAsk a question: "
         )
+
         if user_query.lower() == "exit":
             break
 
-        preprocessed_query = preprocess_query(user_query)
+        preprocessed_query = (
+            preprocess_query(
+                user_query
+            )
+        )
+
         answer_user_query(
+
             document_collection,
+
+            chunk_lookup,
+
             preprocessed_query
         )
+
 
 # =========================================================
 # ENTRY POINT

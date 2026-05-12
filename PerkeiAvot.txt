@@ -60,7 +60,7 @@ The _Abot_ is, then, a practical moral code based on Torah.
          LANGUAGE
 
 The language of _Abot_ is easy Mishnaic Hebrew, with portions of four
-verses (I, 13; II, 7; V, 25, and V, 26) in Aramaic, which is closely
+verses in Aramaic, which is closely
 related to Hebrew.  It is worthy of note that these Aramaic portions
 originated with the school of Hillel.
 
@@ -97,7 +97,7 @@ ben Shatach, Shemaiah and Abtalion, Hillel and Shammai,
 Jochanan ben Zakkai, and the latter's disciples.  By association
 of idea with this number ten, there were added to this collection
 numerical sayings of ten, and, then, others of seven and four, found
-in chapter V, 1-9 and 10-13.
+in chapter V.
 
 Into this enlarged kernel of pithy sayings of the oldest authorities,
 which may be characterized as the _Abot of Rabbi Akiba_, later
@@ -105,21 +105,21 @@ _Tannaim_--Rabbi Meir, Rabbi Judah ha-Nasi, and others--interpolated
 additional sayings of the afore-mentioned Rabbis, and also typical
 utterances of their disciples, and of other well-known teachers.  This
 accounts for the presence in _Abot_ of the body of maxims of the six
-generations of the school of Hillel, designated above as section B 1,
-and which was very properly introduce after the aphorisms of Hillel
-and of his contemporary, Shammai.  The thread of tradition being
+generations of the school of Hillel. After which we very properly
+introduce the aphorisms of Hillel and of his contemporary, Shammai.  
+The thread of tradition being
 interrupted by this interpolation, it was again taken up by the
-introduction of another body of Hillel's sayings (B 2), thus providing
+introduction of another body of Hillel's sayings, thus providing
 for a natural transition from Hillel to Jochanan ben Zakkai.  Proof of
 the fact that section B is an addition is that in the _Abot de-Rabbi
 Natan_--which, as has been said above, is based on an older version of
-_Abot_ (14)--the sayings of Jochanan ben Zakkai follow immediately
+_Abot_ --the sayings of Jochanan ben Zakkai follow immediately
 upon those of Shammai.  The sayings of Judah ha-Nasi, the redactor of
 the _Mishnah_, and of Rabbi Gamaliel, his son, were undoubtedly added
 after the time of Judah.
 
 
-         ABOT IN THE LITURGY (18)
+         ABOT IN THE LITURGY
 
 As Taylor has said, "Its simplicity and intrinsic excellence have
 secured for _Abot_ a widespread and lasting popularity, and have led
@@ -182,10 +182,8 @@ may be glorified".
 
       This does not mean that Israel alone, to the exclusion of
       other nations, will have a portion in the future world.  On
-      the future world ([olam haba]), see [Chapter II], n. 21.  "The
-      pious of all nations have a portion in the world to come"
-      Maimonides, in _Mishneh Torah_, I, _Hilchot Teshubah_, iii,
-      sums up the Rabbinic opinion.
+      the future world; "The pious of all nations have a portion in the world to come"
+      Maimonides, sums up the Rabbinic opinion.
 
 CHAPTER I
 
@@ -219,15 +217,15 @@ Synagogue (The men of the Great Assembly). They said three things,
       Scribe, consisted of 120 men, who comprised the highest
       judicial tribunal, and who occupied a position in the early
       days of the Temple similar to that of the later _Sanhedrin_.
-      The historical foundation of this tradition is Nehemiah
-      VIII-X, in which is recounted the solemn acceptance of the Law
+      The historical foundation of this tradition is Nehemiah,
+      in which is recounted the solemn acceptance of the Law
       by a great assembly of the people.  The men of the Great
       Synagogue appear here in _Abot_ as the depositaries of the
       tradition of the _Torah_, coming in the chain between the last
       prophets and the earliest scribes.  From this chapter and
       other Rabbinical sources, we gather that the men of the Great
       Synagogue constituted a sort of college of teachers, one of
-      the last survivors being Simon, the Just (Chapter I, 2).
+      the last survivors being Simon, the Just.
       Their work was to interpret, teach, and develop the _Torah_,
       and to them were ascribed all kinds of legal enactments.  They
       instituted the _Shemoneh Esrah_ (the Eighteen Benedictions)
@@ -245,7 +243,7 @@ Synagogue (The men of the Great Assembly). They said three things,
 2. Simon, the Just, was of the last survivors of the Great
 Synagogue.  He used to say, "Upon three things the world rests: upon
 the _Torah_, upon the Temple service, and upon the doing of acts
-of kindness".Simon, the Just, son of Onias, was high-priest about 300 B.C.E.
+of kindness". Simon, the Just, son of Onias, was high-priest about 300 B.C.E.
 
       It is said, "Great is the _Torah_, for if it did
       not exist, the heaven and the earth would have no permanence."
@@ -262,8 +260,7 @@ master for the sake of receiving recompense; but be like servants who
 minister to their master without any thought of receiving a reward;
 and let the fear of Heaven be upon you."
 
-      According to _Abot de-Rabbi Natan_, Chapter V, ed.
-      Schechter, p. 26, Antigonus had two disciples, Zadok and
+      According to _Abot de-Rabbi Natan_, Antigonus had two disciples, Zadok and
       Boethos, from whom arose the Sadducees and the heretical sect
       of Boethusians, from their misinterpretation of this verse,
       both denying the doctrines of immortality of the soul and
@@ -281,7 +278,7 @@ son of Joezer, of Zeredah said, "Let thy house be a meeting-place for
 the wise; cover thyself with the dust of their feet, and drink in
 their words with thirst."
 
-      In _Chagigah_, II, 2, we are told that when two leading
+      We are told that when two leading
       teachers are named in the _Mishnah_ as having received the
       _Torah_, they constitute a "pair" ([zug]), the first being the
       president([nasi]), and the second the vice-president ([av beit
@@ -479,10 +476,7 @@ thy will."
 
       (8) In every community, the work and goodness of past
       generations live in the present, and the good that the
-      community does in the present will live on in the future.  On
-      the "merit of the fathers" ([z'chut avot]), see Schechter,
-      _Some Aspects of Rabbinic Theology_, chapter XII, especially
-      pp. 175-177, where this passage is quoted.
+      community does in the present will live on in the future.
 
       (9) This verse is directed toward the leaders of the
       community.
@@ -536,11 +530,7 @@ world to come" (21).
       renders it "vulgar."  Mayer Sulzberger maintains that this
       term was applied to an assembly of representatives of the
       people constituting a body similar to the modern Parliament,
-      and divided into a lower and upper house.  See his "_The Am
-      Ha-aretz, The Ancient Hebrew Parliament._"  On the _Am
-      ha-aretz_ and his opposite the _chaber_, see Schurer,
-      _History_, II, ii, pp. 8, 9 and pp. 22 _et seq._, also
-      Herford, _ibid._ pp. 46-47.
+      and divided into a lower and upper house.
 
       (15) _I.e._, he who is ashamed to ask questions for fear of
       exposing his ignorance.
@@ -561,9 +551,7 @@ world to come" (21).
 
       (21) The expression "the world to come" may mean the Messianic
       days, the time after the Messianic era, the days after the
-      resurrection or the spiritual hereafter.  Maimonides discusses
-      at length the various theories, in _Perek Chelek_ (Commentary
-      on _Sanhedrin_, X, 1).
+      resurrection or the spiritual hereafter.
 
 9. Rabban Jochanan, the son of Zakkai (22) received (the tradition)
 from Hillel and Shammai.  He used to say, "If thou hast learnt much
@@ -622,10 +610,7 @@ then your words, for in his words yours are included."
       _Torah_.
 
       (27) A _chasid_ ([chasid]), "saint," is one who does more than
-      the strict letter of the law requires.  See Schechter,
-      _Studies_, II, pp. 148-181, _idem_, _Aspects_, p. 209, Rawicz,
-      _Commentar des Maimonides_, pp. 95-96, and Gorfinkle, _The
-      Eight Chapters_, pp. 60-62.
+      the strict letter of the law requires.
 
       (28) "A welling spring" (Taylor).
 
@@ -642,8 +627,7 @@ then your words, for in his words yours are included."
       (32) One who balances the present against the future.
 
       (33) The heart was considered the seat of all moral and
-      spiritual functions.  See Schechter, _Aspects_, p. 255 _et
-      seq._
+      spiritual functions.
 
       (34) Denotes niggardliness, envy, or jealousy.
 
@@ -824,8 +808,7 @@ each other alive" (6).
       IV, 1); when reading from the _Torah_ (_Yoma_, VII, 1; _Sotah_
       VII, 7, 8), and when offering the daily sacrifice (_Tamid_
       VII, 3).  Rabbi Chanina was the last to bear this title, his
-      son being known as Simeon ben ha-Segan.  See Bacher, _Agada
-      der Tanaiten_, pp. 55-58, Schurer, _History_, II, i, 257-259.
+      son being known as Simeon ben ha-Segan.
 
       (6) "And seek the peace of the city whither
       I have caused you to be carried away captives, and pray unto
@@ -1229,7 +1212,7 @@ since the hope of man is but the worm."
       little_ and the _too much_ is the path of virtue, but he makes
       an exception in the case of humility, and, in accordance with
       this passage, considers the extreme of being very humble the
-      virtue.  See Gorfinkle, _The Eight Chapters_, p. 60, n. 2.
+      virtue.
 
 5. R. Jochanan, the son of Berokah (11), said, "Whosoever profanes the
 Name of Heaven (12) in secret will suffer the penalty for it in
@@ -1601,14 +1584,10 @@ others say, tongs, also, made with tongs (26).
       (12) The straight column of smoke denoted the acceptance of
       prayer and sacrifice.
 
-      (13) See Lev. XXIII, 15-17.
-
       (14) Every Sabbath, twelve loaves of bread were placed on a
       table in the Sanctuary "before the Lord" (Lev. XXIV, 5-9) to
       serve as a constant reminder to the twelve tribes that their
       place was before the altar of God.
-
-      (15) Isa. XLIX, 20.
 
       (16) Since all things were said to have been created during
       the first six days of creation, and since "there is nothing
@@ -1616,10 +1595,9 @@ others say, tongs, also, made with tongs (26).
       supernatural that existed or occurred after creation was
       explained by the Rabbis as having been made or preordained in
       the twilight at the moment of transition between the end of
-      the work of creation and the beginning of the Sabbath.  See
-      Gorfinkle, _ibid._, pp. 90-91 and n. 1.
+      the work of creation and the beginning of the Sabbath.
 
-      (17) To swallow Korah and his followers.  See Num. XVI, 30.
+      (17) To swallow Korah and his followers.
 
       (18) Which supplied the Israelites with water during their
       wandering in the wilderness.
