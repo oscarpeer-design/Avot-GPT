@@ -16,36 +16,38 @@ from sentence_transformers import SentenceTransformer
 DOCUMENT_PATH = r"C:\Users\Oscar\source\repos\Avot-GPT\PerkeiAvot.txt"
 
 # Chunking
-CHUNK_SIZE = 400
-CHUNK_OVERLAP = 40
+CHUNK_SIZE = 500
+CHUNK_OVERLAP = 80
 
 # Retrieval
-TOP_K = 15
-FINAL_K = 3
+TOP_K = 20
+FINAL_K_FACT = 4
+FINAL_K_SUMMARY = 10
 
-SIMILARITY_THRESHOLD = 0.35
-CONFIDENCE_THRESHOLD = 0.48
+SIMILARITY_THRESHOLD = 0.28
+CONFIDENCE_THRESHOLD = 0.46
 
 # Context
-MAX_CONTEXT_CHARS = 2000
-MAX_CONTEXT_BLOCK_CHARS = 300
+MAX_CONTEXT_CHARS = 3500
+MAX_CONTEXT_BLOCK_CHARS = 650
 
 # Generation
-MAX_TOKENS = 350
+MAX_TOKENS_FACT = 220
+MAX_TOKENS_SUMMARY = 650
 
 MODEL_NAME = "gemma3:1b"
 
-TEMPERATURE = 0.05
+TEMPERATURE = 0.15
 STREAM = True
 
 # Runtime
-OLLAMA_CTX = 2048
+OLLAMA_CTX = 4096
 CPU_THREADS_USED = 8
 
 # Routing
 RAG_MIN_RESULTS = 1
-RAG_MIN_CONTEXT_WORDS = 18
-RAG_MIN_CONTEXT_WORDS = 18
+RAG_MIN_CONTEXT_WORDS = 20
+
 
 # =========================================================
 # EMBEDDING MODEL
@@ -54,6 +56,7 @@ RAG_MIN_CONTEXT_WORDS = 18
 embedding_model = SentenceTransformer(
     "all-MiniLM-L6-v2"
 )
+
 
 # =========================================================
 # GLOBAL STATE
@@ -64,14 +67,12 @@ chunk_sections = []
 
 faiss_index = None
 
+
 # =========================================================
 # LOAD + CLEAN
 # =========================================================
 
 def load_text(path: str) -> str:
-    """
-    Load UTF-8 document text.
-    """
 
     return Path(path).read_text(
         encoding="utf-8"
@@ -80,7 +81,7 @@ def load_text(path: str) -> str:
 
 def clean_text(text: str) -> str:
     """
-    Remove noisy formatting that harms embeddings.
+    Remove noisy formatting.
     """
 
     text = re.sub(r"\[[^\]]*\]", "", text)
@@ -88,6 +89,7 @@ def clean_text(text: str) -> str:
     text = re.sub(r"\s+", " ", text)
 
     return text.strip()
+
 
 # =========================================================
 # SECTION SPLITTING
@@ -97,10 +99,6 @@ SECTION_PATTERN = r"(CHAPTER\s+[IVXLC\d]+\.?)"
 
 
 def split_sections(text: str):
-    """
-    Split corpus into:
-    (section_title, section_body)
-    """
 
     parts = re.split(
         SECTION_PATTERN,
@@ -123,14 +121,12 @@ def split_sections(text: str):
 
     return sections
 
+
 # =========================================================
 # CHUNKING
 # =========================================================
 
 def split_sentences(text: str):
-    """
-    Sentence-aware splitting.
-    """
 
     return re.split(
         r'(?<=[.!?])\s+',
@@ -139,9 +135,6 @@ def split_sentences(text: str):
 
 
 def chunk_text(text: str):
-    """
-    Sliding-window chunking with overlap.
-    """
 
     sentences = split_sentences(text)
 
@@ -163,7 +156,6 @@ def chunk_text(text: str):
             yield " ".join(buffer)
 
         overlap_buffer = []
-
         overlap_size = 0
 
         for old_sentence in reversed(buffer):
@@ -186,11 +178,6 @@ def chunk_text(text: str):
 
 
 def build_chunks(sectioned_text):
-    """
-    Build aligned:
-    - chunk_texts
-    - chunk_sections
-    """
 
     texts = []
     sections = []
@@ -199,31 +186,24 @@ def build_chunks(sectioned_text):
 
         for chunk in chunk_text(body):
 
-            cleaned_chunk = chunk.strip()
+            cleaned = chunk.strip()
 
-            if not cleaned_chunk:
+            if not cleaned:
                 continue
 
-            texts.append(cleaned_chunk)
+            texts.append(cleaned)
             sections.append(section_title)
 
     return texts, sections
 
+
 # =========================================================
-# FAISS INDEX
+# FAISS
 # =========================================================
 
 def build_faiss_index(texts):
-    """
-    Build cosine-similarity FAISS index.
-    """
 
     global faiss_index
-
-    if not texts:
-        raise ValueError(
-            "No chunks generated."
-        )
 
     print("Embedding chunks...")
 
@@ -246,8 +226,9 @@ def build_faiss_index(texts):
 
     faiss_index.add(embeddings)
 
+
 # =========================================================
-# QUERY EMBEDDING CACHE
+# EMBEDDING CACHE
 # =========================================================
 
 @lru_cache(maxsize=256)
@@ -263,8 +244,115 @@ def embed_query(query: str):
         dtype=np.float32
     )
 
+
 # =========================================================
-# RETRIEVAL
+# QUERY CLASSIFICATION
+# =========================================================
+
+def classify_query(query: str):
+
+    q = query.lower()
+
+    # CHAPTER MODE (highest priority for structure)
+    if any(x in q for x in [
+        "chapter",
+        "what is written in chapter",
+        "summarise chapter",
+        "summary of chapter"
+    ]):
+        return "chapter"
+
+    # ENTITY FACT QUESTIONS
+    if any(x in q for x in [
+        "who was",
+        "who is",
+        "who were",
+        "what is torah",
+        "what is hillel",
+        "what is akiva"
+    ]):
+        return "entity"
+
+    # CONCEPTUAL / EXPLANATION
+    if any(x in q for x in [
+        "what is",
+        "define",
+        "meaning",
+        "why",
+        "how",
+        "explain"
+    ]):
+        return "concept"
+
+    # SUMMARY REQUESTS
+    if any(x in q for x in [
+        "summarise",
+        "summary",
+        "overview"
+    ]):
+        return "summary"
+
+    return "general"
+
+# =========================================================
+# QUERY EXPANSION
+# =========================================================
+
+def expand_query(query: str):
+
+    q = query.lower()
+
+    expansions = {
+
+        "great assembly":
+            "great synagogue men of the great synagogue",
+
+        "great synagogue":
+            "great assembly",
+
+        "torah":
+            "law teachings pentateuch",
+
+        "akiva":
+            "rabbi akiva tannaim",
+
+        "hillel":
+            "rabbi hillel",
+
+        "shammai":
+            "rabbi shammai",
+
+        "chapter 1":
+            "chapter i",
+
+        "chapter 2":
+            "chapter ii",
+
+        "chapter 3":
+            "chapter iii",
+
+        "chapter 4":
+            "chapter iv",
+
+        "chapter 5":
+            "chapter v",
+
+        "chapter 6":
+            "chapter vi"
+    }
+
+    expanded = query
+
+    for key, value in expansions.items():
+
+        if key in q:
+            expanded += " " + value
+
+    return expanded
+
+
+# =========================================================
+# RETRIEVAL HELPERS
 # =========================================================
 
 STOPWORDS = {
@@ -275,9 +363,6 @@ STOPWORDS = {
 
 
 def lexical_overlap_score(query_words, text_lower):
-    """
-    Exact keyword overlap boost.
-    """
 
     matches = sum(
         1
@@ -285,118 +370,161 @@ def lexical_overlap_score(query_words, text_lower):
         if word in text_lower
     )
 
-    score = matches * 0.07
+    score = matches * 0.06
 
-    # Strong boost for multi-word matches
     if matches >= 2:
-        score += 0.14
+        score += 0.12
 
     if matches >= 3:
-        score += 0.20
+        score += 0.18
 
     return score
 
 
-def definition_boost(text_lower):
-    """
-    Boost definition-style passages.
-    """
-
-    patterns = [
-        "was",
-        "were",
-        "is",
-        "are",
-        "consisted of",
-        "known as",
-        "refers to"
-    ]
-
-    if any(p in text_lower for p in patterns):
-        return 0.12
-
-    return 0.0
-
-
 def explanation_boost(text_lower):
-    """
-    HUGE quality improvement:
-    boosts role/explanation passages.
-    """
 
     patterns = [
+
         "their work was",
         "their role was",
         "they interpreted",
         "they taught",
         "they developed",
         "they instituted",
-        "they established",
-        "they were ascribed",
         "served as",
-        "depositaries of",
-        "constituted"
+        "constituted",
+        "known as",
+        "refers to"
     ]
 
     if any(p in text_lower for p in patterns):
-        return 0.22
+        return 0.18
 
     return 0.0
 
 
 def factual_density_boost(text):
-    """
-    Prefer medium factual passages.
-    """
 
-    text_len = len(text)
-
-    # Best range for factual synthesis
-    if 180 <= text_len <= 450:
-        return 0.12
+    if 180 <= len(text) <= 650:
+        return 0.10
 
     return 0.0
 
 
 def commentary_penalty(text_lower):
-    """
-    Penalize commentary-heavy sections.
-    """
 
     commentary_markers = [
-        "maimonides",
-        "blessed memory",
-        "others have written",
-        "supports his view",
-        "this verse",
-        "divine inspiration"
+
+        "translator",
+        "editor",
+        "footnote",
+        "appendix",
+        "maimonides says",
+        "others have written"
     ]
 
-    if any(c in text_lower for c in commentary_markers):
-        return -0.28
+    if any(x in text_lower for x in commentary_markers):
+        return -0.22
 
     return 0.0
 
 
-def retrieve(query: str):
+# =========================================================
+# CHAPTER RETRIEVAL
+# =========================================================
 
-    expanded_query = expand_query(query)
+def retrieve_chapter(chapter_query: str):
+    """
+    Direct section retrieval for chapter summaries.
+    """
 
-    query_embedding = embed_query(expanded_query)
+    q = chapter_query.lower()
+
+    roman_map = {
+        "1": "I",
+        "2": "II",
+        "3": "III",
+        "4": "IV",
+        "5": "V",
+        "6": "VI"
+    }
+
+    for num, roman in roman_map.items():
+
+        if f"chapter {num}" in q:
+
+            target = f"CHAPTER {roman}"
+
+            results = []
+
+            for text, section in zip(
+                chunk_texts,
+                chunk_sections
+            ):
+
+                if target in section:
+
+                    results.append({
+                        "text": text,
+                        "section": section,
+                        "score": 1.0
+                    })
+
+            return results[:FINAL_K_SUMMARY]
+
+    return None
+
+def entity_safety_filter(query, text_lower):
+
+    q = query.lower()
+
+    # prevents known hallucinated conflations
+    if "who are the jews" in q:
+
+        if "great synagogue" in text_lower:
+            return -0.4
+
+        if "men of the great assembly" in text_lower:
+            return -0.4
+
+    return 0.0
+
+# =========================================================
+# RETRIEVAL
+# =========================================================
+
+def retrieve(query: str, query_type: str):
+
+    # =========================
+    # CHAPTER MODE (HARD ROUTE)
+    # =========================
+    if query_type == "chapter":
+
+        chapter_hits = retrieve_chapter(query)
+
+        if chapter_hits:
+            return chapter_hits
+
+    expanded = expand_query(query)
+    q_emb = embed_query(expanded)
+
+    top_k = TOP_K
+
+    if query_type == "summary":
+        top_k = 30  # IMPORTANT: summaries need breadth
 
     scores, ids = faiss_index.search(
-        np.array([query_embedding]),
-        TOP_K
+        np.array([q_emb]),
+        top_k
     )
+
+    results = []
+    seen = set()
 
     query_words = {
         w for w in re.findall(r"\w+", query.lower())
         if w not in STOPWORDS
     }
-
-    results = []
-
-    seen_texts = set()
 
     for score, idx in zip(scores[0], ids[0]):
 
@@ -404,45 +532,19 @@ def retrieve(query: str):
             continue
 
         text = chunk_texts[idx].strip()
-
-        # deduplicate repeated chunks
-        if text in seen_texts:
-            continue
-
-        seen_texts.add(text)
-
         text_lower = text.lower()
+
+        if text in seen:
+            continue
+        seen.add(text)
 
         final_score = float(score)
 
-        # =====================================
-        # RERANKING
-        # =====================================
-
-        final_score += lexical_overlap_score(
-            query_words,
-            text_lower
-        )
-
-        final_score += definition_boost(
-            text_lower
-        )
-
-        final_score += explanation_boost(
-            text_lower
-        )
-
-        final_score += factual_density_boost(
-            text
-        )
-
-        final_score += commentary_penalty(
-            text_lower
-        )
-
-        # =====================================
-        # FILTER
-        # =====================================
+        final_score += lexical_overlap_score(query_words, text_lower)
+        final_score += explanation_boost(text_lower)
+        final_score += factual_density_boost(text)
+        final_score += commentary_penalty(text_lower)
+        final_score += entity_safety_filter(query, text_lower)
 
         if final_score < SIMILARITY_THRESHOLD:
             continue
@@ -453,25 +555,21 @@ def retrieve(query: str):
             "score": round(final_score, 3)
         })
 
-    results.sort(
-        key=lambda x: x["score"],
-        reverse=True
-    )
+    results.sort(key=lambda x: x["score"], reverse=True)
 
-    return results[:FINAL_K]
+    if query_type == "summary":
+        return results[:FINAL_K_SUMMARY]
+
+    return results[:FINAL_K_FACT]
 
 # =========================================================
-# CONTEXT COMPRESSION
+# CONTEXT
 # =========================================================
 
 def compress_context(results):
-    """
-    Build concise high-signal context.
-    """
-
-    seen = set()
 
     blocks = []
+    seen = set()
 
     for result in results:
 
@@ -496,61 +594,97 @@ def compress_context(results):
 
     return context[:MAX_CONTEXT_CHARS]
 
+
 # =========================================================
 # PROMPTS
 # =========================================================
 
-def build_rag_prompt(context, query):
+def build_rag_prompt(context, query, query_type):
+
+    base_rules = """
+You are answering using a structured historical/religious text.
+
+CRITICAL RULES:
+- Use ALL relevant context provided
+- Do NOT quote randomly
+- Do NOT focus on a single passage
+- Do NOT confuse entities (e.g. groups vs individuals)
+- Synthesize information across passages
+"""
+
+    if query_type == "chapter":
+
+        instruction = """
+You are writing a CHAPTER SYNTHESIS.
+
+Requirements:
+- Organize into themes
+- Combine all teachings
+- Mention key figures only when relevant
+- Do NOT quote isolated lines
+- Ensure full coverage of the chapter content
+- Write 3–6 paragraphs minimum
+"""
+
+    elif query_type == "summary":
+
+        instruction = """
+You are writing a DETAILED SUMMARY.
+
+Requirements:
+- Cover ALL major ideas in the context
+- Include multiple rabbis and teachings
+- Explain ethical themes clearly
+- Avoid quoting single sentences
+- Prefer synthesis over repetition
+- Use multiple paragraphs if needed
+"""
+
+    elif query_type == "entity":
+
+        instruction = """
+You are answering a factual identity question.
+
+Requirements:
+- Be precise
+- Use context if relevant
+- Do NOT conflate groups or roles
+- Avoid assumptions beyond text
+"""
+
+    else:
+
+        instruction = """
+Explain clearly and naturally.
+
+Requirements:
+- Use context if helpful
+- Keep explanation accurate
+- Avoid hallucinations
+"""
 
     return f"""
-You are a precise but thorough QA system.
+{base_rules}
 
-CRITICAL INSTRUCTIONS:
-- Use ONLY the provided context
-- Do NOT invent information
-- If the context contains multiple facts, include ALL of them
-- Combine related ideas into a complete explanation
-- Write full, concise sentences only
+{instruction}
 
-FORMAT:
-- Write 2–4 sentences depending on available information
-- If listing people, roles, or groups: include ALL mentioned roles
-- If describing a concept: explain definition + role + context
-
-Context:
+CONTEXT:
 {context}
 
-Question:
+QUESTION:
 {query}
 
-Answer:
-""".strip()
-
-
-def build_direct_prompt(query: str):
-    """
-    General assistant prompt.
-    """
-
-    return f"""
-Answer clearly and directly.
-
-Question:
-{query}
-
-Answer:
+FINAL ANSWER:
 """.strip()
 
 # =========================================================
-# OLLAMA
+# GENERATION
 # =========================================================
 
-def ollama_generate(prompt: str):
-    """
-    Fast low-latency generation.
-    """
+def generate(prompt: str, max_tokens: int):
 
     return ollama.chat(
+
         model=MODEL_NAME,
 
         stream=STREAM,
@@ -559,17 +693,17 @@ def ollama_generate(prompt: str):
 
             "temperature": TEMPERATURE,
 
-            "num_predict": MAX_TOKENS,
+            "num_predict": max_tokens,
 
             "num_ctx": OLLAMA_CTX,
 
             "num_thread": CPU_THREADS_USED,
 
-            "repeat_penalty": 1.05,
+            "repeat_penalty": 1.08,
 
-            "top_k": 20,
+            "top_k": 30,
 
-            "top_p": 0.8
+            "top_p": 0.9
         },
 
         messages=[
@@ -580,34 +714,36 @@ def ollama_generate(prompt: str):
         ]
     )
 
-# =========================================================
-# ROUTING
-# =========================================================
-
-def should_use_rag(query: str) -> bool:
-
-    q = query.lower().strip()
-
-    non_rag = [
-        "hello",
-        "hi",
-        "how are you",
-        "tell me a joke"
-    ]
-
-    if any(x == q for x in non_rag):
-        return False
-
-    return True
 
 # =========================================================
-# ANSWERING
+# DIRECT LLM
 # =========================================================
 
-def direct_llm_answer(query: str):
+def direct_llm_answer(query: str, retrieved_context: str | None = None):
+
+    system = """
+You are a neutral factual assistant.
+
+STYLE RULES:
+- Do not moralise or lecture
+- Do not correct the user emotionally
+- Do not assume intent
+- If question is offensive, respond factually and neutrally
+- If context is missing, answer generally and carefully
+"""
+
+    context_block = ""
+
+    if retrieved_context:
+        context_block = f"""
+Context (use if relevant):
+{retrieved_context}
+"""
 
     prompt = f"""
-Answer clearly and accurately.
+{system}
+
+{context_block}
 
 Question:
 {query}
@@ -619,221 +755,125 @@ Answer:
         model=MODEL_NAME,
         stream=False,
         options={
-            "temperature": TEMPERATURE,
-            "num_predict": MAX_TOKENS,
-
+            "temperature": 0.3,
+            "num_predict": 220,
             "num_ctx": OLLAMA_CTX,
             "num_thread": CPU_THREADS_USED
         },
-        messages=[
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ]
+        messages=[{"role": "user", "content": prompt}]
     )
 
     return response["message"]["content"]
 
-
-def rag_answer(query: str):
-    """
-    Full RAG pipeline.
-    """
-
-    results = retrieve(query)
-
-    if not results:
-        return (
-            "No relevant context found."
-        )
-
-    if results[0]["score"] < CONFIDENCE_THRESHOLD:
-        return direct_llm_answer(query)
-
-    context = compress_context(results)
-
-    if len(context.split()) < 25:
-        return direct_llm_answer(query)
-
-    prompt = build_rag_prompt(
-        context,
-        query
-    )
-
-    response = ollama_generate(prompt)
-
-    return response["message"]["content"]
-
 # =========================================================
-# GENERATE
+# ROUTING
 # =========================================================
 
-def generate(prompt: str):
-    """
-    Unified Ollama generation.
+def should_use_rag(query: str):
 
-    Always returns:
-    - string if STREAM=False
-    - generator if STREAM=True
-    """
+    q = query.lower().strip()
 
-    response = ollama.chat(
-        model=MODEL_NAME,
-        stream=STREAM,
-        options={
-            "temperature": TEMPERATURE,
-            "num_predict": MAX_TOKENS,
+    non_rag = [
 
-            # Performance
-            "num_ctx": OLLAMA_CTX,
-            "num_thread": CPU_THREADS_USED,
+        "hello",
+        "hi",
+        "how are you",
+        "tell me a joke"
+    ]
 
-            # Stability
-            "repeat_penalty": 1.05,
-            "top_k": 20,
-            "top_p": 0.8
-        },
-        messages=[
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ]
-    )
+    if q in non_rag:
+        return False
 
-    return response
+    return True
+
+
+def is_hostile(query: str):
+
+    q = query.lower()
+
+    patterns = [
+        "are jews evil",
+        "are jews greedy",
+        "jews are evil",
+        "jews are greedy",
+        "zionists are evil"
+    ]
+
+    return any(p in q for p in patterns)
 
 
 # =========================================================
 # ASK
 # =========================================================
 
-def expand_query(query: str) -> str:
-    """
-    Expand queries into corpus language.
-    Greatly improves retrieval quality.
-    """
-
-    q = query.lower()
-
-    expansions = {
-        "jews": "israel torah jewish people rabbis",
-        "jewish": "israel torah rabbinical",
-        "god": "lord heaven divine",
-        "afterlife": "world to come gehinnom",
-        "women": "wife woman",
-        "great assembly": "great synagogue men of the great synagogue",
-        "hillel": "rabbi hillel",
-        "shammai": "rabbi shammai",
-        "torah": "law teachings",
-    }
-
-    expanded = query
-
-    for key, value in expansions.items():
-        if key in q:
-            expanded += " " + value
-
-    return expanded
-
 def ask(query: str):
 
     query = query.strip()
-    query = expand_query(query)
 
     if not query:
-        print("Please enter a question.")
         return
 
     print("\n--- ANSWER ---\n")
 
-    # =====================================================
-    # DIRECT MODE
-    # =====================================================
-
-    if not should_use_rag(query):
-
+    if is_hostile(query):
+        # still allows factual answer, just no moral framing
         answer = direct_llm_answer(query)
-
         print(answer)
         return
 
-    # =====================================================
-    # RETRIEVAL
-    # =====================================================
+    if not should_use_rag(query):
+        print(direct_llm_answer(query))
+        return
 
-    results = retrieve(query)
+    query_type = classify_query(query)
 
-    if (
-        len(results) < RAG_MIN_RESULTS
-        or results[0]["score"] < CONFIDENCE_THRESHOLD
-    ):
-        answer = direct_llm_answer(query)
+    results = retrieve(query, query_type)
 
-        print(answer)
+    if not results:
+        print(direct_llm_answer(query))
         return
 
     context = compress_context(results)
 
     if len(context.split()) < RAG_MIN_CONTEXT_WORDS:
-
-        answer = direct_llm_answer(query)
-
-        print(answer)
+        print(direct_llm_answer(query))
         return
 
-    prompt = build_rag_prompt(context, query)
+    prompt = build_rag_prompt(context, query, query_type)
 
-    response = generate(prompt)
+    max_tokens = (
+        MAX_TOKENS_SUMMARY
+        if query_type in ["summary", "chapter"]
+        else MAX_TOKENS_FACT
+    )
 
-    # =====================================================
-    # STREAMING MODE
-    # =====================================================
+    response = generate(prompt, max_tokens)
 
-    if STREAM:
+    full = ""
 
-        full_response = ""
+    for chunk in response:
+        if "message" not in chunk:
+            continue
 
-        for chunk in response:
+        content = chunk["message"].get("content", "")
+        print(content, end="", flush=True)
+        full += content
 
-            if "message" not in chunk:
-                continue
-
-            content = chunk["message"].get("content", "")
-
-            print(content, end="", flush=True)
-
-            full_response += content
-
-        print()
-
-        return full_response
-
-    # =====================================================
-    # NON-STREAM MODE
-    # =====================================================
-
-    else:
-
-        print(response["message"]["content"])
-
-        return response["message"]["content"]
+    print()
+    return full
 
 # =========================================================
 # WARMUP
 # =========================================================
 
 def warmup():
-    """
-    Warm model into RAM.
-    """
 
     print("Warming up model...")
 
     try:
 
         ollama.chat(
+
             model=MODEL_NAME,
 
             stream=False,
@@ -854,13 +894,8 @@ def warmup():
 
     except Exception as error:
 
-        print(
-            f"Warmup failed: {error}"
-        )
+        print(f"Warmup failed: {error}")
 
-        print(
-            "Check Ollama installation."
-        )
 
 # =========================================================
 # MAIN
@@ -908,6 +943,7 @@ def main():
             break
 
         ask(query)
+
 
 # =========================================================
 # ENTRY
